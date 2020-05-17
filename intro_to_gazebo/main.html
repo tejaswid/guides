@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>UR5e in Gazebo and MoveIt!</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="github.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+<h1 class="title">UR5e in Gazebo and MoveIt!</h1>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#foreword">Foreword</a></li>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#gazebo">Gazebo</a></li>
+<li><a href="#gazebo-and-ros">Gazebo and ROS</a></li>
+<li><a href="#moveit">MoveIt!</a></li>
+</ul></li>
+<li><a href="#how-to-build-simulations">How to build simulations?</a><ul>
+<li><a href="#filesystem-overview">Filesystem overview</a></li>
+<li><a href="#filesystem-overview-1">Filesystem overview</a></li>
+</ul></li>
+</ul>
+</div>
+<ul>
+<li>Author: Tejaswi Digumarti (tejaswi.digumarti@sydney.edu.au)</li>
+<li>Last Updated: 17th May 2020</li>
+</ul>
+<h2 id="foreword">Foreword</h2>
+<p>This document provides explains how to simulate a UR5e arm in Gazebo and control it using MoveIt via ROS. I have tried to provide a high-level overview of the fundamentals of simulation in Gazebo and go into implementation details only for the UR5e arm. Similar is the case for MoveIt! To keep this document concise, I have provided links to resources wherever I felt that the content was already presented in a good form and a repetition of it in this document is not necessary. I encourage the reader to check them out for a complete understanding of the topic.</p>
+<p>Instead of starting from scratch and building our way up, I will present the content in a top-down approach where we will begin with a fully functioning simulation and then disect it to understand the various parts of the framework, and how they interact with each other.</p>
+<p>The target audience is the students of the MTRX5700 - Experimental Robotics course at the University of Sydney. This document describes how the simulation framework for Assignments 1 and 2 was build and how you can modify it for your major projects. While only UR5e is covered in detail, the document is also useful for those who are simulating other robots.</p>
+<h2 id="introduction">Introduction</h2>
+<h3 id="gazebo">Gazebo</h3>
+<p>Gazebo was originally developed for the purpose of simulating outdoor environments with high-fidelity, by Dr. Andrew howard and Nate Koenig at the University of Southern California in 2002 <a href="http://gazebosim.org/">[ref]</a>. It was part of the <a href="http://robotics.stanford.edu/~gerkey/research/final_papers/icar03-player.pdf">Player/Stage Project</a> along with Player (clean interface to robots and sensors) and Stage (multiple robots simulator). In the subsequent years it gained independent popularity and has grown to become the go to simulator in Robotics for both indoor and outdoor environments. As a result several robots and environmets have been simulated in Gazebo and are available for use by the community.</p>
+<p>Some popular ones are<br />
+- <a href="http://wiki.ros.org/pr2_simulator/Tutorials">PR2</a><br />
+- <a href="https://github.com/RethinkRobotics/sdk-docs/wiki/Using-Gazebo-and-Baxter">Baxter</a><br />
+- <a href="http://wiki.ros.org/turtlebot_gazebo/Tutorials/indigo/Explore%20the%20Gazebo%20world">TurtleBot</a><br />
+- <a href="https://github.com/ros-industrial/universal_robot">UR5</a><br />
+- <a href="https://github.com/ethz-asl/rotors_simulator/wiki">RotorS</a><br />
+- <a href="https://github.com/duckietown/duckietown-sim-server">Duckietown</a></p>
+<p>In recent years, there are also a growing number of simulators that are taking advantage of game engines like Unity and Unreal Engine, especially for their high-fidelity graphics capabilities (I personally use Unreal Engine). These are typically used where photo-realism is desired. In cases where photo-realism is an overkill, Gazebo is still the simulation environment of choice for modelling many robots and enviornments.</p>
+<h3 id="gazebo-and-ros">Gazebo and ROS</h3>
+<p>Gazebo is a standalone simulation framework that can be used to model objects, mechanisms, environments and the interaction between them, i.e. physics. Hence it can be used to model robots. It is not necessary to use Gazebo with ROS, but using it along with ROS makes it interesting for a few reasons. In the context of this course, the most important reason is that Gazebo can be used as a drop in replacement for the real world, provided that the modelling is done reasonably well. One can use the same code written using ROS to test in simulation and directly deploy it on the real robot.</p>
+<h3 id="moveit">MoveIt!</h3>
+<p>MoveIt! is a motion planning and manipulation toolkit for ROS <a href="https://moveit.ros.org/">ref</a>, initially developed at Willow garage in 2011. It is now</p>
+<h2 id="how-to-build-simulations">How to build simulations?</h2>
+<p>This is probably what you are reading this document for. I will cover this section in detail taking the example of the simulation environment for Assignments 1 and 2 that uses the UR5e arm. For other robots or environments, please refer to one of the links in the introduction section. <em>Note: Some of the frameworks may be outdated and no longer be maintained, but are still useful from an educational point of view.</em></p>
+<p>If you are an absolute beginner to Gazebo, please first go and learn the basics from the tutorials <a href="http://gazebosim.org/tutorials?cat=guided_b">here</a>. You can also continue reading this document amd refer to them when in doubt. I will cover some fundamentals in this document as well.</p>
+<h3 id="filesystem-overview">Filesystem overview</h3>
+<p>Instead of starting</p>
+<center>
+<img src="images/turtles.png" align="middle">
+</center>
+<!-- ![ROS Turtles](images/turtles.png "ROS Turtles")   -->
+<p>Figure 2 - Turtles for all the ROS-1 versions.</p>
+<h3 id="filesystem-overview-1">Filesystem overview</h3>
+<p>If you look at the assignment1_code.zip that was part of Assignment 1, the folders are organized as follows</p>
+</body>
+</html>
