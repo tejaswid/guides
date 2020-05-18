@@ -1,7 +1,5 @@
 % An Absolute Beginner's Introduction to Robot Operating System (ROS<sup>TM</sup>)
-
-- Author: Tejaswi Digumarti (tejaswi.digumarti@sydney.edu.au)
-- Last Updated: 5th March 2020
+Author: Tejaswi Digumarti (tejaswi.digumarti@sydney.edu.au)
 
 ## Foreword
 This document provides a very brief introduction to Robot Operating System (ROS) and some of its components.
@@ -108,15 +106,8 @@ One would only work and modify files in the **src** folder and not touch the **b
 
 So far, we only created the **src** folder and the other folders do not exist yet.
 They appear once you build your code. (Build is also referred to as *compile* or *make*).
-This can be done by doing one of the following.  
-**Note**: Please use only one of the following and once you choose one, stick to it for the rest of the workflow. We recommend using `catkin build`.
-```bash 
-catkin_make
-```
-or
-```bash
-catkin build
-```
+This can be done by using either `catkin_make` or `catkin build`.  
+**Note**: Please use only one of them and once you choose one, stick to it for the rest of the workflow. We recommend using `catkin build`.
 You should now see the other folders.
 
 ### 2.2 catkin build system
@@ -147,7 +138,7 @@ In CMake, the configuration is specified in a file called *CMakeLists.txt*.
 More details can be found [here](http://wiki.ros.org/catkin/conceptual_overview).
 
 ### 2.3 ROS Packages
-Let us now take a closer look at the contents of the **src** folder and more specifically how to write code for ROS.
+Let us now take a closer look at the contents of the **src** folder and more specifically how to write code that uses ROS.
 
 In ROS terminology code is organized into **packages**, with each package consisting code for one or more *targets* to be built.
 They can also just be datasets or configuration files.
@@ -157,6 +148,19 @@ Each package is a separate folder in the **src** folder and must contain 2 files
 1. **CMakeLists.txt** - Containing the configuration for catkin to build the package.  
 2. **package.xml** - Containing information about the package such as its name, version, description, author, maintainer and all the dependencies of this package. This file is only to let users other than the author/maintainer to know what this package is about and what the requirements are to build the package. Ideally all the dependencies mentioned in CMakeLists.txt should be mentioned in this file as well.
 
+For example, for a package named *my_package* that depends on *roscpp*, a simple configuration can be as follows.
+<center>
+<img src="images/CMakeLists.txt.png" align="middle" width=60%>
+</center>
+<!-- ![CMakeLists.txt](images/CMakeLists.txt.png "CMakeLists.txt")   -->
+Figure 4 - CMakeLists.txt for a package named *my_package* dependant on *roscpp*. The executable is called *my_package_node*.
+
+<center>
+<img src="images/package.xml.png" align="middle" width=60%>
+</center>
+<!-- ![package.xml](images/package.xml.png "package.xml") -->
+Figure 5 - package.xml for a package named *my_package* dependant on *roscpp*.
+
 All other code can be organized into folders as necessay. The following is a common convention for some general code.  
 1. **src** - Containing all the C++ source files  
 2. **include** - Containing all the C++ header files  
@@ -164,12 +168,11 @@ All other code can be organized into folders as necessay. The following is a com
 4. **launch** - containing launch files  
 
 A package can be created manually from scratch by creating the necessary folders and files and editing the CMakeLists.txt and package.xml. 
-The other option is to use built-in command line tools to generate a skeleton for the two files as shown [here](http://wiki.ros.org/ROS/Tutorials/catkin/CreatingPackage).
+The other option is to use built-in command line tools `catkin_create_pkg` or `catkin create pkg` to generate a skeleton for the two files as shown [here](http://wiki.ros.org/ROS/Tutorials/catkin/CreatingPackage).
 
 ## 3. Understanding ROS at a Computational Graph Level
-This section presents and overview of ROS from a computation point of view.
-
-So far we have seen how code is organized and compiled.
+This section presents and overview of ROS from a computational point of view.
+So far we have seen how code is organized in the file system and how it is compiled.
 Now we shall see the underlying architecture of ROS and how it works.
 
 Programs in ROS are organized into a peer-to-peer network, called the **Computational Graph**, that process and share data together.
