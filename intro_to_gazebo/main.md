@@ -22,7 +22,7 @@ Gazebo was originally developed for the purpose of simulating outdoor environmen
 
 Some popular ones are   
 - [PR2](http://wiki.ros.org/pr2_simulator/Tutorials)  
-- [Pioneer](https://github.com/RafBerkvens/ua_ros_p3dx)  
+- [Pioneer P3DX](https://github.com/RafBerkvens/ua_ros_p3dx)  
 - [Baxter](https://github.com/RethinkRobotics/sdk-docs/wiki/Using-Gazebo-and-Baxter)  
 - [TurtleBot](http://wiki.ros.org/turtlebot_gazebo/Tutorials/indigo/Explore%20the%20Gazebo%20world)  
 - [UR5](https://github.com/ros-industrial/universal_robot)  
@@ -45,22 +45,52 @@ I will cover this section in detail taking the example of the simulation environ
 For other robots or environments, please refer to one of the links in the introduction section.
 *Note: Some of the frameworks may be outdated and no longer be maintained, but are still useful from an educational point of view.*
 
-If you are an absolute beginner to Gazebo, please first go and learn the basics from the tutorials [here](http://gazebosim.org/tutorials?cat=guided_b).
-You can also continue reading this document and refer to them when in doubt. I will cover some fundamentals in this document as well.
+The main references for this section are the [Gazebo Tutorials(http://gazebosim.org/tutorials?cat=guided_b) and [MoveIt! Tutorials](https://ros-planning.github.io/moveit_tutorials/).
+You can also continue reading this document and refer to them when in doubt.
+I will cover some fundamentals in this document as well.
 
 Let us now take a dive directly into the simulation framework and try to understand how everything works.
 
 ### Filesystem overview
-
-
+If you look at the code that was distributed with assignment 1 (available on canvas) in the folder **assignment_1_code**, it is organized as follows.
 
 <center>
-<img src="images/turtles.png" align="middle">
+<img src="images/ass1_main.png" align="middle">
 </center>
-<!-- ![ROS Turtles](images/turtles.png "ROS Turtles")   -->
-Figure 2 - Turtles for all the ROS-1 versions.
+Figure 1 - Main folders and their contents in the code for assignment_1.
+
+The two main folders are  
+* **universal_robot**:  containing code relevant to the UR5e robotic arm such as its description in simulation, its configuration for MoveIt!, its forward kinematics, its CAD model etc.
+* **assignment_1**: containing code specific to the assignment
+
+#### universal_robot
+We shall focus on three subfolders which are relevant to this dicussion.  
+1. ur5_e_moveit_config: This is where the configuration files required by MoveIt are present
+2. **ur_e_description**: This is where the files that describe the model of the arm are present  
+3. **ur_e_gazebo**: This is where the launch files related to gazebo are present  
+
+<center>
+<img src="images/ur_root.png" align="middle">
+</center>
+Figure 1 - Folders in universal_robot
+
+#### assignment_1
+This fodler is organized as follows.
+
+<center>
+<img src="images/ass1_ass1_root.png" align="middle">
+</center>
+Figure 1 - Folders in assignment_1
+
+### Workflow
+When you run your demo or assignment script, the set of files that are used is shown in the picture below.
+
+### How to modify the simulation
 
 
+#### URDF
+#### SDF
+#### Textures
+#### Models
 
-### Filesystem overview
-If you look at the assignment1_code.zip that was part of Assignment 1, the folders are organized as follows
+
