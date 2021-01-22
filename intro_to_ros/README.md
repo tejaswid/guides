@@ -1,5 +1,7 @@
 # An Absolute Beginner's Introduction to Robot Operating System (ROS<sup>TM</sup>)
-Author: Tejaswi Digumarti (tejaswi.digumarti@sydney.edu.au)
+
+- Author: Tejaswi Digumarti (tejaswi.digumarti@sydney.edu.au)
+- Last Updated: 22th January 2021
 
 ## Foreword
 This document provides a very brief introduction to Robot Operating System (ROS) and some of its components.
@@ -98,7 +100,11 @@ catkin init
 This is referred to as the top-level cmake file and is a symbolic link to the file */opt/ros/\<version\>/share/catkin/cmake/toplevel.cmake*.
 
 ### 3.1.1 The workspace structure
-The workspace consists of 4 main folders which are as follows.  
+
+![A Typical ROS Workspace](images/workspace.png "A typical ROS Workspace")
+Figure 4. A Typical ROS workspace.
+
+The workspace consists of 4 main folders which are as follows (see Figure 4).  
 1. **src** - This is where your source code lies, organized into packages.  
 2. **build** - This is the build space for your source code. Intermediate build files are written to this folder.  
 3. **devel** - This is where the *targets* (executables, libraries, scripts, shared C++ headers) that are built are located. This folder also contains files that define the context of a ROS environment.  
