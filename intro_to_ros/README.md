@@ -162,13 +162,15 @@ For example, for a package named *my_package* that depends on *roscpp*, a simple
 <img src="images/CMakeLists.txt.png" align="middle" width=60%>
 </center>
 <!-- ![CMakeLists.txt](images/CMakeLists.txt.png "CMakeLists.txt")   -->
-Figure 4 - CMakeLists.txt for a package named *my_package* dependant on *roscpp*. The executable is called *my_package_node*.
+Figure 5 - CMakeLists.txt for a package named *my_package* dependant on *roscpp*. The executable is called *my_package_node*.
+
+<br/><br/>
 
 <center>
 <img src="images/package.xml.png" align="middle" width=60%>
 </center>
 <!-- ![package.xml](images/package.xml.png "package.xml") -->
-Figure 5 - package.xml for a package named *my_package* dependant on *roscpp*.
+Figure 6 - package.xml for a package named *my_package* dependant on *roscpp*.
 
 All other code can be organized into folders as necessay. The following is a common convention for some general code.  
 1. **src** - Containing all the C++ source files  
