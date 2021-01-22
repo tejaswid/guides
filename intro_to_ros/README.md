@@ -44,7 +44,7 @@ The first official release of ROS was ROS Box Turtle which was released on 2nd M
 Since 2013 the Open Source Robotics Foundation has been managing and maintaining ROS.
 
 <p align="center">
-    <img src="images/turtles.png">
+    <img src="images/turtles.png"></br>
     Figure 2 - Turtles for all the ROS-1 versions.
 </p>
 <!-- ![ROS Turtles](images/turtles.png "ROS Turtles")   -->
