@@ -12,7 +12,6 @@ I encourage the reader to check them out for a complete understanding of the top
 Instead of starting from scratch and building our way up, I will present the content in a top-down approach where we will begin with a fully functioning simulation and then dissect it to understand the various parts of the framework, and how they interact with each other.
 
 The target audience is the students of the MTRX5700 - Experimental Robotics course at the University of Sydney.
-This document describes how the simulation framework for Assignments 1 and 2 was build and how you can modify it for your major projects.
 While only UR5e is covered in detail, the document is also useful for those who are simulating other robots.
 
 ## Introduction
