@@ -45,9 +45,9 @@ Since 2013 the Open Source Robotics Foundation has been managing and maintaining
 
 <p align="center">
     <img src="images/turtles.png">
+    Figure 2 - Turtles for all the ROS-1 versions.
 </p>
 <!-- ![ROS Turtles](images/turtles.png "ROS Turtles")   -->
-Figure 2 - Turtles for all the ROS-1 versions.
 
 ### Versions and Operating Systems
 There are two main versions of ROS; ROS 1 and ROS 2.
