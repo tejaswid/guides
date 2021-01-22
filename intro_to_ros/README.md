@@ -43,9 +43,9 @@ ROS was originally developed in 2000s at Stanford University and further develop
 The first official release of ROS was ROS Box Turtle which was released on 2nd March, 2010.
 Since 2013 the Open Source Robotics Foundation has been managing and maintaining ROS.
 
-<center>
-<img src="images/turtles.png" align="middle">
-</center>
+<p align="center">
+    <img src="images/turtles.png">
+</p>
 <!-- ![ROS Turtles](images/turtles.png "ROS Turtles")   -->
 Figure 2 - Turtles for all the ROS-1 versions.
 
@@ -56,10 +56,10 @@ Hence this document will only cover topics related to ROS 1.
 Throughout this document when we use ROS, we refer to ROS 1.
 The latest long term stable distribution of ROS 1 for Ubuntu 18.04 at the time of this document is [ROS Melodic Morenia](http://wiki.ros.org/melodic).
 
-<center>
-<img src="images/melodic.jpg" align="middle" width=30%>
-</center>
-Figure 3 - The poster of ROS Melodic Morenia.
+<p align="center">
+    <img src="images/melodic.jpg" width=30%>
+</p>
+Figure 3 - The poster of ROS Melodic Morenia.  
 <!-- ![Figure 3 - The logo of ROS Melodic Morenia](images/melodic.jpg "Figure 3 - The logo of ROS Melodic Morenia") -->
 
 While it is possible to install ROS in Linux, MacOS and Windows, it is easiest to install in Linux.
@@ -101,7 +101,9 @@ This is referred to as the top-level cmake file and is a symbolic link to the fi
 
 ### 3.1.1 The workspace structure
 
-![A Typical ROS Workspace](images/workspace.png "A typical ROS Workspace")  
+<p align="center">
+    <img src="images/workspace.png" width=60%>
+</p>
 Figure 4. A Typical ROS workspace.
 
 The workspace consists of 4 main folders which are as follows (see Figure 4).  
@@ -158,9 +160,9 @@ Each package is a separate folder in the **src** folder and must contain 2 files
 2. **package.xml** - Containing information about the package such as its name, version, description, author, maintainer and all the dependencies of this package. This file is only to let users other than the author/maintainer to know what this package is about and what the requirements are to build the package. Ideally all the dependencies mentioned in CMakeLists.txt should be mentioned in this file as well.
 
 For example, for a package named *my_package* that depends on *roscpp*, a simple configuration can be as follows.
-<center>
-<img src="images/CMakeLists.txt.png" align="middle" width=60%>
-</center>
+<p align="center">
+    <img src="images/CMakeLists.txt.png" width=60%>
+</p>
 <!-- ![CMakeLists.txt](images/CMakeLists.txt.png "CMakeLists.txt")   -->
 Figure 5 - CMakeLists.txt for a package named *my_package* dependant on *roscpp*. The executable is called *my_package_node*.
 
@@ -171,6 +173,8 @@ Figure 5 - CMakeLists.txt for a package named *my_package* dependant on *roscpp*
 </p>
 <!-- ![package.xml](images/package.xml.png "package.xml") -->
 Figure 6 - package.xml for a package named *my_package* dependant on *roscpp*.
+
+<br/><br/>
 
 All other code can be organized into folders as necessay. The following is a common convention for some general code.  
 1. **src** - Containing all the C++ source files  
