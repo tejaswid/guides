@@ -1,7 +1,7 @@
-% UR5e in Gazebo and MoveIt!
+# Introduction to UR5e in Gazebo with ROS and MoveIt!
 
 - Author: Tejaswi Digumarti (tejaswi.digumarti@sydney.edu.au)
-- Last Updated: 25th May 2020
+- Last Updated: 22th January 2021
 
 ## Foreword
 This document explains how to simulate a UR5e arm in Gazebo and control it using MoveIt via ROS.
