@@ -166,9 +166,9 @@ Figure 5 - CMakeLists.txt for a package named *my_package* dependant on *roscpp*
 
 <br/><br/>
 
-<center>
-<img src="images/package.xml.png" align="middle" width=60%>
-</center>
+<p align="center">
+    <img src="images/package.xml.png" width=60%>
+</p>
 <!-- ![package.xml](images/package.xml.png "package.xml") -->
 Figure 6 - package.xml for a package named *my_package* dependant on *roscpp*.
 
