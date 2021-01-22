@@ -101,7 +101,7 @@ This is referred to as the top-level cmake file and is a symbolic link to the fi
 
 ### 3.1.1 The workspace structure
 
-![A Typical ROS Workspace](images/workspace.png "A typical ROS Workspace")
+![A Typical ROS Workspace](images/workspace.png "A typical ROS Workspace")  
 Figure 4. A Typical ROS workspace.
 
 The workspace consists of 4 main folders which are as follows (see Figure 4).  
