@@ -1,4 +1,4 @@
-% An Absolute Beginner's Introduction to Robot Operating System (ROS<sup>TM</sup>)
+# An Absolute Beginner's Introduction to Robot Operating System (ROS<sup>TM</sup>)
 Author: Tejaswi Digumarti (tejaswi.digumarti@sydney.edu.au)
 
 ## Foreword
@@ -29,10 +29,10 @@ Table 1 - Summary of some key components in ROS (\[[3](https://www.researchgate.
 Figure 1 - The ROS equation illustrating the components of ROS (\[[1](https://www.ros.org/about-ros/))\].
 
 ### Why use ROS?
-1. ROS is **modular** meaning one can choose to use only specific components of ROS in their frameworks.  
+1. ROS is **modular**, meaning one can choose to use only specific components of ROS in their frameworks.  
 2. ROS programs can be **distributed** across multiple computers.  
 3. ROS modules can be written in **multiple languages**, as long as a client library exists (e.g. C++, Python, Matlab, Java).  
-4. ROS can be used as a generic tool to interact with multiple robot platforms, by **abstracting the hardware**.  
+4. ROS can be used as a generic tool to interact with multiple robot platforms, by **abstracting the hardware**. For example, one can write code to acquire images from a generic camera and use it to interact with cameras from different manufacturers (assuming a ROS driver for a particular camera is available).
 5. ROS has a **large community** of users which enables transfer of knowledge and code across industry and academia which helps in collaborative research and product development.
 6. ROS has a **permissive license** (three-clause BSD) enabling reuse in both open source and closed source products. Code built using ROS can also be commercialized.  
 
@@ -52,7 +52,7 @@ There are two main versions of ROS; ROS 1 and ROS 2.
 ROS 2 is still in its early stages, at the time of this document, and has not been fully adopted by the community.
 Hence this document will only cover topics related to ROS 1. 
 Throughout this document when we use ROS, we refer to ROS 1.
-The latest long term stable distribution of ROS 1 at the time of this document is [ROS Melodic Morenia](http://wiki.ros.org/melodic).
+The latest long term stable distribution of ROS 1 for Ubuntu 18.04 at the time of this document is [ROS Melodic Morenia](http://wiki.ros.org/melodic).
 
 <center>
 <img src="images/melodic.jpg" align="middle" width=30%>
@@ -63,10 +63,13 @@ Figure 3 - The poster of ROS Melodic Morenia.
 While it is possible to install ROS in Linux, MacOS and Windows, it is easiest to install in Linux.
 We shall assume that the operating system of the user is Linux (more specifically Ubuntu 18.04).
 
-## 2. Understanding ROS at a File System Level.
+## 2. Installation
+Follow [this guide](http://wiki.ros.org/melodic/Installation/Ubuntu) to install ROS Melodic in Ubuntu 18.04.
+
+## 3. Understanding ROS at a File System Level.
 This sections present an overview of ROS as it appears in the file system.
 
-### 2.1 The workspace
+### 3.1 The workspace
 Software developed using ROS is generally written in a ROS workspace - more commonly referred to as a *catkin workspace*.
 In simple terms a catkin workspace is just a folder with some special settings in it.
 These settings make sure that software packages written by a user are built and maintained in a clean way, with all the dependencies being found correctly, and let ROS be aware of these packages.
@@ -90,11 +93,11 @@ catkin init
 **Notes**:  
 1. `catkin init` is slightly better than `catkin_init_workspace` and is recommended.  
 2. `catkin init` is run from the workspace folder while `catkin_init_workspace` is run from the src folder.  
-3. Using `catkin_init` creates a hidden folder named *.catkin_tools* inside the workspace folder where the special settings are stored.  
-4. Using `catkin_init_workspace` creats a file called *CMakeLists.txt* in the src folder. 
+3. Using `catkin init` creates a hidden folder named *.catkin_tools* inside the workspace folder where the special settings are stored.  
+4. Using `catkin_init_workspace` creates a file called *CMakeLists.txt* in the src folder. 
 This is referred to as the top-level cmake file and is a symbolic link to the file */opt/ros/\<version\>/share/catkin/cmake/toplevel.cmake*.
 
-### 2.1.1 The workspace structure
+### 3.1.1 The workspace structure
 The workspace consists of 4 main folders which are as follows.  
 1. **src** - This is where your source code lies, organized into packages.  
 2. **build** - This is the build space for your source code. Intermediate build files are written to this folder.  
@@ -110,7 +113,7 @@ This can be done by using either `catkin_make` or `catkin build`.
 **Note**: Please use only one of them and once you choose one, stick to it for the rest of the workflow. We recommend using `catkin build`.
 You should now see the other folders.
 
-### 2.2 catkin build system
+### 3.2 catkin build system
 **What happened when you invoked the above command?**  
 ROS uses a custom **build system** called **catkin**.
 This build system compiled the code present in the **src** folder in the **build** folder and put the built executables and libraries in the **devel** folder.
@@ -137,7 +140,7 @@ In CMake, the configuration is specified in a file called *CMakeLists.txt*.
 
 More details can be found [here](http://wiki.ros.org/catkin/conceptual_overview).
 
-### 2.3 ROS Packages
+### 3.3 ROS Packages
 Let us now take a closer look at the contents of the **src** folder and more specifically how to write code that uses ROS.
 
 In ROS terminology code is organized into **packages**, with each package consisting code for one or more *targets* to be built.
@@ -170,7 +173,7 @@ All other code can be organized into folders as necessay. The following is a com
 A package can be created manually from scratch by creating the necessary folders and files and editing the CMakeLists.txt and package.xml. 
 The other option is to use built-in command line tools `catkin_create_pkg` or `catkin create pkg` to generate a skeleton for the two files as shown [here](http://wiki.ros.org/ROS/Tutorials/catkin/CreatingPackage).
 
-## 3. Understanding ROS at a Computational Graph Level
+## 4. Understanding ROS at a Computational Graph Level
 This section presents and overview of ROS from a computational point of view.
 So far we have seen how code is organized in the file system and how it is compiled.
 Now we shall see the underlying architecture of ROS and how it works.
@@ -178,20 +181,20 @@ Now we shall see the underlying architecture of ROS and how it works.
 Programs in ROS are organized into a peer-to-peer network, called the **Computational Graph**, that process and share data together.
 The main components of this graph are the following.
 
-### 3.1 ROS Nodes
+### 4.1 ROS Nodes
 Nodes are the computational units of ROS, i.e. they are the individual programs that run.
 Typically there are multiple nodes running at the same time interacting with each other, e.g. a robotic car can have one node to collect images, one node to process these images, one node to collect laser data, one node to process this data, one node to control the motors of the wheels, one node to plan routes, one node to determine where the car is, one node to run a fancy interface in the car, one node to play music and so one. 
 In simple programming terms nodes are the executables.
 Nodes are written using the ROS client library - generally using roscpp, rospy and seldom using rosjava.
 
-### 3.2 ROS Messages
+### 4.2 ROS Messages
 Nodes communicate with each other using Messages. 
 A message is a simple data-structure with entries of specified types (integer, float, boolean and arrays of these primitive types).
 It contains the data that nodes wish to communicate.
 In the robotics car, a *wheel_speed* message can have a float specifying the speed of the wheel and another float specifying a timestamp.
 Similarly an *image_message* contain a float specifying the timestamp and an array of floats for the image data.
 
-### 3.3 ROS Topics
+### 4.3 ROS Topics
 Topics are channels through which messages are passed.
 A topic is the name that is used to identify the content of a message, e.g. in the car we can have four topics called *left_front_speed*, *right_front_speed*, *left_rear_speed*, *right_rear_speed* all passing messages of the type *wheel_speed*.
 
@@ -202,19 +205,19 @@ There may be multiple concurrent publishers and subscribers for a single topic, 
 In general, publishers and subscribers are not aware of each others' existence. 
 The idea is to decouple the production of information from its consumption. \[[5](http://wiki.ros.org/ROS/Concepts)\]
 
-### 3.4 ROS Master
+### 4.4 ROS Master
 The ROS Master provides name registration and lookup to the Computation Graph, i.e. it helps a node find other nodes and manages the communication between nodes.
 A ROS Master is the first thing that has to be started when running processes in ROS. This is done by calling the `roscore` command.
 ```bash
 roscore
 ```
 
-### 3.5 ROS Parameter Server
+### 4.5 ROS Parameter Server
 The Parameter Server allows common data to be stored in a central location.
 This is generally used for parameters that do not change during the execution of a program.
 Parameters can be specified using a YAML file or in ROS Launch files.
 
-### 3.6 ROS Services
+### 4.6 ROS Services
 Unlike the publisher-subscriber model, ROS services enable a request-reply model.
 A service is defined using a pair of messages, one for the request and one for the reply.
 Node that offer a service advertise them and client nodes that require the service request it and wait for a response from the service node.
@@ -223,13 +226,13 @@ In simple programming terms, think of services as function calls that are execut
 **Note**:  
 We strongly recommend the reader to go through the ROS tutorials for beginners [here](http://wiki.ros.org/ROS/Tutorials) and [here](https://www.researchgate.net/publication/314101187_Programming_for_Robotics_-_Introduction_to_ROS) to learn how to write code using the ROS Client libraries and get hands-on understanding of these concepts.
 
-## 4. Other ROS Tools
+## 5. Other ROS Tools
 
-### 4.1 ROS Launch
+### 5.1 ROS Launch
 Launch files are XML files used to launch multiple ROS nodes at once. 
 They can also be used to set parameters on the parameter server.
 
-### 4.2 Visualization - RViz and rqt
+### 5.2 Visualization - RViz and rqt
 RViz is a 3D visualization tool for ROS.
 It subscribes to topics and visualizes their contents.
 Some common applications of RViz are to visualize rigid body transformations, robot states, trajectories and point cloud data. 
@@ -240,12 +243,12 @@ Some common applications are to visualize the computation graph, displaying and 
 
 Both are powerful and very useful tools that can be customized as desired by writing additonal plugins.
 
-### 4.3 Simulation - Gazebo
+### 5.3 Simulation - Gazebo
 Gazebo is a physics simulator chiefly used to simulate rigid body dynamics.
 It can also be used to simulate a wide variety of sensors (with noise models).
 Gazebo is not part of ROS, however it is closely associated with it.
 
-### 4.4 Transformations - tf2
+### 5.4 Transformations - tf2
 This is a tool for keep track of rigid body transformations.
 Coordinate frames of all the objects in the environment are stores in a tree like structured and updated in time.
 Tools to convert between several representations of transformations are also available.
