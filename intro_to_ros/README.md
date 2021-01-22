@@ -57,9 +57,9 @@ Throughout this document when we use ROS, we refer to ROS 1.
 The latest long term stable distribution of ROS 1 for Ubuntu 18.04 at the time of this document is [ROS Melodic Morenia](http://wiki.ros.org/melodic).
 
 <p align="center">
-    <img src="images/melodic.jpg" width=30%>
+    <img src="images/melodic.jpg" width=30%></br>
+    Figure 3 - The poster of ROS Melodic Morenia.  
 </p>
-Figure 3 - The poster of ROS Melodic Morenia.  
 <!-- ![Figure 3 - The logo of ROS Melodic Morenia](images/melodic.jpg "Figure 3 - The logo of ROS Melodic Morenia") -->
 
 While it is possible to install ROS in Linux, MacOS and Windows, it is easiest to install in Linux.
@@ -102,9 +102,9 @@ This is referred to as the top-level cmake file and is a symbolic link to the fi
 ### 3.1.1 The workspace structure
 
 <p align="center">
-    <img src="images/workspace.png" width=60%>
+    <img src="images/workspace.png" width=40%></br>
+    Figure 4. A Typical ROS workspace.
 </p>
-Figure 4. A Typical ROS workspace.
 
 The workspace consists of 4 main folders which are as follows (see Figure 4).  
 1. **src** - This is where your source code lies, organized into packages.  
@@ -161,18 +161,18 @@ Each package is a separate folder in the **src** folder and must contain 2 files
 
 For example, for a package named *my_package* that depends on *roscpp*, a simple configuration can be as follows.
 <p align="center">
-    <img src="images/CMakeLists.txt.png" width=60%>
+    <img src="images/CMakeLists.txt.png" width=60%></br>
+    Figure 5 - CMakeLists.txt for a package named *my_package* dependant on *roscpp*. The executable is called *my_package_node*.
 </p>
 <!-- ![CMakeLists.txt](images/CMakeLists.txt.png "CMakeLists.txt")   -->
-Figure 5 - CMakeLists.txt for a package named *my_package* dependant on *roscpp*. The executable is called *my_package_node*.
 
 <br/><br/>
 
 <p align="center">
-    <img src="images/package.xml.png" width=60%>
+    <img src="images/package.xml.png" width=60%></br>
+    Figure 6 - package.xml for a package named *my_package* dependant on *roscpp*.
 </p>
 <!-- ![package.xml](images/package.xml.png "package.xml") -->
-Figure 6 - package.xml for a package named *my_package* dependant on *roscpp*.
 
 <br/><br/>
 
